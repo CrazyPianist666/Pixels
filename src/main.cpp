@@ -1,4 +1,5 @@
 //Platform Globals
+#include"plungs_lib.h"
 static bool running = true;
 
 //Platform Functions
@@ -101,6 +102,10 @@ int main()
     {
         //Update
         platform_update_window();
+        SM_TRACE("Test");
+        SM_WARN("Test");
+        SM_ERROR("Test");
+        SM_ASSERT(false,"Assertion not hit")
     }
     
     return 0;
