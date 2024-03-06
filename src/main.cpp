@@ -1,4 +1,3 @@
-#include "plungs_lib.h"
 //Platform Globals
 static bool running = true;
 
@@ -26,12 +25,14 @@ LRESULT CALLBACK windows_window_callback(HWND window, UINT uMsg, WPARAM wParam, 
         case WM_CLOSE:
         {
             running = false;
-        } break;
+            break;
+        } 
 
         default:
         {
             result = DefWindowProcA(window, uMsg, wParam, lParam);
-        } break;
+            break;
+        } 
     }
 
     return result;
@@ -100,10 +101,6 @@ int main()
     {
         //Update
         platform_update_window();
-        SM_TRACE("Test");
-        SM_WARN("Test");
-        SM_ERROR("Test");
-        SM_ASSERT(false,"Assertion not hit")
     }
     
     return 0;

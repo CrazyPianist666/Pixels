@@ -1,11 +1,7 @@
 #pragma once
-#include <stdio.h>
 
-//Defines
-#define DEBUG_BREAK() __debugbreak()
-
-//Logging
-enum TextColor
+#include<stdio.h>
+enum TextColour
 {
     TEXT_COLOR_BLACK,
     TEXT_COLOR_RED,
@@ -27,7 +23,7 @@ enum TextColor
 };
 
 template <typename... Args>
-void _log(char* prefix, char* msg, TextColor textcolor, Args... args)
+void _log(char* prefix, char* msg, TextColour textcolor, Args... args)
 {
     static char* TextColorTable[TEXT_COLOR_COUNT] =
     {
@@ -71,3 +67,4 @@ void _log(char* prefix, char* msg, TextColor textcolor, Args... args)
         SM_ERROR("ASSERTION HIT!")      \
     }                                   \
 }
+
