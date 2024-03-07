@@ -2,12 +2,15 @@
 #include"plungs_lib.h"
 #include"platform.h"
 
+#define APIENTRY
+#include "glcorearb.h"
 
 //Windows Platform
 #ifdef _WIN32
 #include "win32_platform.cpp"
-
 #endif
+
+#include "gl_renderer.h"
 
 int main()
 {

@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef __gl_glcorearb_h_
 #define __gl_glcorearb_h_ 1
 
