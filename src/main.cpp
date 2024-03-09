@@ -33,7 +33,7 @@ int main()
     }
 
     renderData = (RenderData*)bump_alloc(&persistentStorage, sizeof(RenderData));
-    if(!input)
+    if(!renderData)
     {
         SM_ERROR("Failed To Allocate RenderData");
         return -1;
