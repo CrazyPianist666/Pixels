@@ -5,3 +5,5 @@ warnings="-Wno-writable-strings -Wno-format-security -Wno-deprecated-declaration
 includes="-Ithird_party -Ithird_party/include"
 
 clang++ $includes -g src/main.cpp -oplungs.exe $libs $warnings 
+
+clang++ -g "src/game.cpp" -shared -o game.dll $warnings
