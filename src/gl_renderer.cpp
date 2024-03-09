@@ -161,5 +161,4 @@ void gl_render()
     renderData.transformCount = 0;
   }
 
-  glDrawArrays(GL_TRIANGLES, 0 , 6);
 }

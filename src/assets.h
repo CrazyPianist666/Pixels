@@ -4,7 +4,7 @@
 
 enum SpriteID
 {
-    SPRITE_RAINBOW,
+    SPRITE_ATLAS,
 
     SPRITE_COUNT
 };
@@ -21,7 +21,7 @@ Sprite get_Sprite(SpriteID spriteid)
     
     switch(spriteid)
     {
-        case SPRITE_RAINBOW:
+        case SPRITE_ATLAS:
         {
             sprite.atlasOffset = {0, 0};
             sprite.spriteSize = {16, 16};
