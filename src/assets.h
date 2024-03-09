@@ -18,6 +18,7 @@ struct Sprite
 Sprite get_Sprite(SpriteID spriteid)
 {
     Sprite sprite = {};
+    
     switch(spriteid)
     {
         case SPRITE_RAINBOW:

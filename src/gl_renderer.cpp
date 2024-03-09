@@ -5,7 +5,7 @@
 
 #include"render_interface.h"
 
-const char* TEXTURE_PATH = "assets/textures/Sample_Texture.png";
+const char* TEXTURE_PATH = "assets/textures/TEXTURE_ATLAS.png";
 
 struct GLContext
 {
@@ -160,4 +160,6 @@ void gl_render()
 
     renderData.transformCount = 0;
   }
+
+  glDrawArrays(GL_TRIANGLES, 0 , 6);
 }
