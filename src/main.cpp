@@ -16,7 +16,7 @@
 #include "gl_renderer.cpp"
 
 typedef decltype(update_game) update_game_type;
-static update_game_type* update_game_ptr;
+static update_game_type *update_game_ptr;
 
 void reload_game_dll(BumpAllocator* transientStorage);
 
@@ -26,6 +26,7 @@ int main()
     BumpAllocator persistentStorage = make_bump_allocator(MB(50));
 
     input = (Input*)bump_alloc(&persistentStorage, sizeof(Input));
+    
     if(!input)
     {
         SM_ERROR("Failed To Allocate Input");
@@ -39,7 +40,7 @@ int main()
         return -1;
     }
 
-    platform_create_window(1280,720,"Temp");
+    platform_create_window(1280,720,"Pixel Plungs");
     input->screenSizeX = 1280;
     input->screenSizeY = 720;
 
@@ -47,10 +48,12 @@ int main()
 
     while (running)
     {
+        reload_game_dll(&transientStorage);
+        gl_render(&transientStorage);
         //Update
         platform_update_window();
-        update_game(renderData,input);
-        gl_render();
+        update_game(renderData, input);
+        
 
         platform_swap_buffers();
 
@@ -95,4 +98,5 @@ void reload_game_dll(BumpAllocator* transientStorage)
         SM_ASSERT(update_game_ptr, "Failed to Load update_game function");
         lastEditTimestampGameDLL = currentTimeStampGameDLL;
     }
+
 }

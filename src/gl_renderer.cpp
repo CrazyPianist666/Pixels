@@ -144,7 +144,7 @@ bool gl_init(BumpAllocator* transientStorage)
     return true;
 }
 
-void gl_render()
+void gl_render(BumpAllocator* transientStorage)
 {
   glClearColor(119.0f / 255.0f, 33.0f / 255.0f, 111.0f / 255.0f, 1.0f);
   glClearDepth(0.0f);
