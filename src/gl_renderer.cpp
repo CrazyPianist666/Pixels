@@ -5,6 +5,8 @@
 
 #include"render_interface.h"
 
+#include "input.h"
+
 const char* TEXTURE_PATH = "assets/textures/TEXTURE_ATLAS.png";
 
 struct GLContext
@@ -151,9 +153,9 @@ void gl_render(BumpAllocator* transientStorage)
   glClearColor(119.0f / 255.0f, 33.0f / 255.0f, 111.0f / 255.0f, 1.0f);
   glClearDepth(0.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  glViewport(0, 0, input->screenSizeX, input->screenSizeY);
+  glViewport(0, 0, input->screenSize.x, input->screenSize.y);
 
-  Vec2 screenSize = {(float)input->screenSizeX, (float)input->screenSizeY};
+  Vec2 screenSize = {(float)input->screenSize.x, (float)input->screenSize.y};
   glUniform2fv(glContext.screenSizeID, 1, &screenSize.x);
 
   OrthographicCamera2D camera = renderData->gameCamera;

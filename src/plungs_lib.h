@@ -10,6 +10,7 @@
 #define EXPORT_FN __declspec(dllexport)
 #endif
 
+#define b8 char
 #define BIT(x) 1 << (x)
 #define KB(x) ((unsigned long long)1024 * x)
 #define MB(x) ((unsigned long long)1024 * KB(x))
@@ -19,7 +20,7 @@ enum TextColour
 {
     TEXT_COLOR_BLACK,
     TEXT_COLOR_RED,
-    TEXT_COLOR_GREEN,
+    TEXT_COLOR_GREEN,   
     TEXT_COLOR_YELLOW,
     TEXT_COLOR_BLUE,
     TEXT_COLOR_MAGENTA,
@@ -284,11 +285,17 @@ struct IVec2
 {
     int x;
     int y;
+
+    IVec2 operator-(IVec2 other)
+    {
+        return {x - other.x, y - other.y};
+    }
 };
 
 Vec2 vec_2(IVec2 v)
 {
   return Vec2{(float)v.x, (float)v.y};
+  
 }
 
 struct Vec4

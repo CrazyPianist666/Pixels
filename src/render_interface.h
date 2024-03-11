@@ -32,6 +32,25 @@ struct RenderData
 
 static RenderData* renderData;
 
+IVec2 screen_to_world(IVec2 screenPos)
+{
+  OrthographicCamera2D camera = renderData->gameCamera;
+
+  int xPos = (float)screenPos.x / 
+             (float)input->screenSize.x * 
+             camera.dimensions.x; 
+
+  xPos += -camera.dimensions.x / 2.0f + camera.position.x;
+
+  int yPos = (float)screenPos.y / 
+             (float)input->screenSize.y * 
+             camera.dimensions.y;
+
+  yPos += camera.dimensions.y / 2.0f + camera.position.y;
+
+  return {xPos, yPos};
+}
+
 void draw_sprite(SpriteID spriteID, Vec2 pos)
 {
     Sprite sprite = get_Sprite(spriteID);
@@ -42,5 +61,9 @@ void draw_sprite(SpriteID spriteID, Vec2 pos)
     transform.atlasOffset = sprite.atlasOffset;
     transform.spriteSize = sprite.spriteSize;
 
-    renderData->transforms[renderData->transformCount++] = transform;
+}
+    
+void draw_sprite(SpriteID spriteID, IVec2 pos)
+{
+  draw_sprite(spriteID, vec_2(pos));
 }

@@ -8,6 +8,8 @@
 #define GL_GLEXT_PROTOTYPES
 #include "glcorearb.h"
 
+static KeyCodeID KeyCodeLookupTable[KEY_COUNT];
+
 //Windows Platform
 #ifdef _WIN32
 #include "win32_platform.cpp"
@@ -47,9 +49,8 @@ int main()
         return -1;
     }
 
-    platform_create_window(1280,720,"Pixel Plungs");
-    input->screenSizeX = 1280;
-    input->screenSizeY = 720;
+    platform_fill_keycode_lookup_table();
+    platform_create_window(1280,640,"Pixel Plungs");
 
     gl_init(&transientStorage);
 
